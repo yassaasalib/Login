@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { baseUrl } from 'src/environments/environment';
+// import { baseUrl } from 'src/environments/environment';
 import { User } from './models/user';
 
 @Injectable({
@@ -11,13 +11,15 @@ export class LoginServiceService {
 
   constructor(private http:HttpClient) {}
 
-  token: any = {};
+  private baseUrl: string = `https://selfcare-service.test.melita.com/interview/backend/api/`
+
+  token: any
+  authToken: any
 
   login(data: User):Observable<any>{
-	var request = this.http.post(`${baseUrl}interview/backend/api/login`, data);
-	request.subscribe(response  => {
-		this.token = response;
-	});
+	// var request = this.http.post(`${baseUrl}login`, data);
+	var request = this.http.post(this.baseUrl + "login", data);
+	request.subscribe(response  => { this.token = response });
 	return request;
   }
 
@@ -28,7 +30,7 @@ export class LoginServiceService {
 		  Authorization: "Bearer" + " " + this.token.authToken
 		})
 	  };
-	return this.http.get(`${baseUrl}interview/backend/api/offers`, httpOptions);
+	return this.http.get(this.baseUrl + "offers", httpOptions);
   }
 
   subscribtions(id: number): Observable<any>{
@@ -37,6 +39,6 @@ export class LoginServiceService {
 		  Authorization: "Bearer " + this.token.authToken
 		})
 	  };
-	return this.http.get(`${baseUrl}interview/backend/api/offers/${id}/subscriptions`, httpOptions);
+	return this.http.get(this.baseUrl + `offers/${id}/subscriptions`, httpOptions);
   }
 }
