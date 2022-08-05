@@ -4,3 +4,7 @@ export interface Offer{
 	id: number;
 	name: string;
 }
+
+export interface Offers{
+	offers: Offer[];
+}

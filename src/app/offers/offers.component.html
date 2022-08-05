@@ -1,7 +1,7 @@
 <div>
-	<div id="demo">
-		<div *ngFor="let offer of offers">
-			<span> hello </span>
-		</div>
-	</div>
+	<ul>
+		<li *ngFor="let offer of offers$ | async">
+			<a [routerLink]="['/subscribtions/', offer.id]"> {{ offer.name }} </a>
+		</li>
+	</ul>
 </div>

@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<div class="page">
+	<button *ngIf="loggedIn" (click)="LogOutProcess()" >Log Out</button>
+	<router-outlet></router-outlet>
+</div>

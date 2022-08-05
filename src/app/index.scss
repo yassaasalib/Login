@@ -1,0 +1,35 @@
+@media (min-width: 0) {
+	@import './styles/360/offers.scss';
+	@import './styles/360/app.scss';
+	@import './styles/360/login.scss';
+}
+@media (min-width: 375px) {
+	@import './styles/375/app.scss';
+	@import './styles/375/login.scss';
+	@import './styles/375/offers.scss';
+}
+@media (min-width: 480px) {
+	@import './styles/480/app.scss';
+	@import './styles/480/login.scss';
+	@import './styles/480/offers.scss';
+}
+@media (min-width: 667px) {
+	@import './styles/667/app.scss';
+	@import './styles/667/login.scss';
+	@import './styles/667/offers.scss';
+}
+@media (min-width: 768px) {
+	@import './styles/768/app.scss';
+	@import './styles/768/login.scss';
+	@import './styles/768/offers.scss';
+}
+@media (min-width: 1024px) {
+	@import './styles/1024/app.scss';
+	@import './styles/1024/login.scss';
+	@import './styles/1024/offers.scss';
+}
+@media (min-width: 1140px) {
+	@import './styles/1140/app.scss';
+	@import './styles/1140/login.scss';
+	@import './styles/1140/offers.scss';
+}

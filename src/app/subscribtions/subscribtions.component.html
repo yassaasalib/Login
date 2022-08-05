@@ -1,0 +1,16 @@
+<div>
+	<ul>
+		<li *ngFor="let subscribtion of subscribtions$ | async">
+			<div>Name: {{ subscribtion.name }}</div>
+			<div>Type: {{ subscribtion.type }}</div>
+			<ul *ngIf="subscribtion.usage">
+				Usage:
+				<li *ngFor="let usage of subscribtion.usage">
+					Limit: {{ usage.limit}}
+					Type: {{usage.type}}
+					Used: {{usage.used}}
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

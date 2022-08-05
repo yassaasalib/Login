@@ -1,5 +1,25 @@
-<div fxLayoutAlign="center center" fxFlexFill class="main-div">
-	<mat-card fxFlex="35">
+<div class="login">
+	<div class="main-div">
+		<h1>melita</h1>
+		<form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="form">
+			<mat-form-field>
+			<input matInput placeholder="Username" formControlName="email">
+			</mat-form-field>
+
+			<mat-form-field>
+			<input matInput type="password" placeholder="Password" formControlName="password">
+			<!-- <input matInput [type]="hide ? 'password' : 'text'">
+			<button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+			  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+			</button> -->
+			</mat-form-field>
+			<button #loginbutton  id="login-button" [disabled]="clicked" (click)="LoginProces();clicked = true;" fxFlex="40" mat-raised-button color="primary" type="submit">Login</button>
+		</form>
+	</div>
+</div>
+
+<!-- <div fxLayoutAlign="center center" fxFlexFill class="main-div">
+	<mat-card fxFlex="100">
 		<mat-toolbar color="primary">Login Page</mat-toolbar>
 		<form fxLayoutAlign="stretch" fxLayout="column" class="login-form" [formGroup]="form" (ngSubmit)="LoginProces()">
 			<mat-form-field>
@@ -12,4 +32,4 @@
 			<button mat-raised-button color="primary" type="submit">Login</button>
 		  </form>
 	</mat-card>
-</div>
+</div> -->

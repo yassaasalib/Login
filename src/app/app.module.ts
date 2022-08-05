@@ -14,12 +14,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OffersComponent } from './offers/offers.component';
+import { SubscribtionsComponent } from './subscribtions/subscribtions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    OffersComponent
+    OffersComponent,
+    SubscribtionsComponent,
   ],
   imports: [
     BrowserModule,
