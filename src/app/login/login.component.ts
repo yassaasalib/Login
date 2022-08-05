@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginServiceService } from '../login-service.service'
+import { SelfCareService } from '../selfcare-service.service'
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,7 +9,7 @@ import { LoginServiceService } from '../login-service.service'
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginServiceService: LoginServiceService, private router: Router) {
+  constructor(private selfCareService: SelfCareService) {
 	this.form = new FormGroup({
 		email: new FormControl('', [Validators.required]),
 		password: new FormControl('', [Validators.required])
@@ -20,20 +20,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
   LoginProces(){
 	if(this.form.valid){
-		this.loginServiceService.login(this.form.value).subscribe(result => {
-			// this.router.navigate(['./offers']);
-			if(result.authToken){
-
-				// save the token in cookie or localstorage
-				this.router.navigate(['./offers']);
-
-				// alert(result.authToken)
-
-			}
-			//  else {
-			// 	alert(result.authToken)
-			// }
-		})
+		this.selfCareService.login(this.form.value);
 	}
   }
 }

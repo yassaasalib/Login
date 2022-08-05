@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceService } from '../login-service.service';
+import { Offer } from '../models/offer';
+import { SelfCareService } from '../selfcare-service.service';
 
 @Component({
   selector: 'app-offers',
@@ -8,11 +9,13 @@ import { LoginServiceService } from '../login-service.service';
 })
 export class OffersComponent implements OnInit {
 
-  constructor(private service: LoginServiceService) { }
+  constructor(private service: SelfCareService) { }
+
+  offers: Offer[] = [];
 
   ngOnInit(): void {
-	this.service.offers().subscribe(offers => {
-		console.log(offers);
+	this.service.offers().subscribe((offersResponse:Offer[]) => {
+		this.offers = offersResponse;
 	});
   }
 
