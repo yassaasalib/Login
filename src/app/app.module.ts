@@ -15,6 +15,11 @@ import { HttpClientModule } from '@angular/common/http'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { OffersComponent } from './offers/offers.component';
 import { SubscribtionsComponent } from './subscribtions/subscribtions.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatTableModule} from '@angular/material/table';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -35,8 +40,12 @@ import { SubscribtionsComponent } from './subscribtions/subscribtions.component'
 	MatToolbarModule,
 	HttpClientModule,
 	FormsModule,
-	ReactiveFormsModule
-
+	ReactiveFormsModule,
+	MatIconModule,
+	MatCheckboxModule,
+	MatExpansionModule,
+	MatTableModule,
+	MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

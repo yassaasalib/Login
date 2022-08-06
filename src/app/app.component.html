@@ -1,4 +1,7 @@
-<div class="page">
-	<button *ngIf="loggedIn" (click)="LogOutProcess()" >Log Out</button>
-	<router-outlet></router-outlet>
+<div id="structure">
+	<div id="logout">
+		<button id="logout-button" *ngIf="loggedIn" (click)="LogOutProcess()" fxFlex="40" mat-raised-button color="primary" >Log Out</button>
+	</div>
 </div>
+
+<router-outlet></router-outlet>

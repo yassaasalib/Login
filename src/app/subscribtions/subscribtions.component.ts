@@ -7,7 +7,7 @@ import { SelfCareService } from '../selfcare-service.service';
 @Component({
 	selector: 'app-subscribtions',
 	templateUrl: './subscribtions.component.html',
-	styleUrls: ['./subscribtions.component.scss']
+	styleUrls: ['../_index.sass']
 })
 export class SubscribtionsComponent implements OnInit {
 	constructor(private service: SelfCareService, private route: ActivatedRoute) { }

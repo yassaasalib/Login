@@ -1,7 +1,33 @@
-<div>
-	<ul>
-		<li *ngFor="let offer of offers$ | async">
-			<a [routerLink]="['/subscribtions/', offer.id]"> {{ offer.name }} </a>
-		</li>
-	</ul>
+<div id="structure">
+	<table mat-table [dataSource]="offers$" class="mat-elevation-z8 offer-tabel">
+		<ng-container matColumnDef="id">
+			<th mat-header-cell *matHeaderCellDef> Id </th>
+			<td mat-cell *matCellDef="let element"> {{element.id}} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="name">
+			<th mat-header-cell *matHeaderCellDef> Name </th>
+			<td mat-cell *matCellDef="let element"> {{element.name}} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="contractStartDate">
+			<th mat-header-cell *matHeaderCellDef> Start date </th>
+			<td mat-cell *matCellDef="let element"> {{element.contractStartDate}} </td>
+		</ng-container>
+
+		<ng-container matColumnDef="contractEndDate">
+			<th mat-header-cell *matHeaderCellDef> End date </th>
+			<td mat-cell *matCellDef="let element"> {{element.contractEndDate}} </td>
+		</ng-container>
+
+		<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+		<tr mat-row (click)="offerClicked(row)" *matRowDef="let row; columns: displayedColumns;">
+		</tr>
+	</table>
+
+	<div *ngIf="offers$ | async as Offer; else loading">
+	</div>
+	<ng-template #loading>
+		<mat-spinner #spinner></mat-spinner>
+	</ng-template>
 </div>

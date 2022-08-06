@@ -5,7 +5,7 @@ import { SelfCareService } from './selfcare-service.service';
 @Component({
 	selector: 'app-root',
 	templateUrl: './app.component.html',
-	styleUrls: ['./index.scss']
+	styleUrls: ['./_index.sass']
 })
 export class AppComponent {
 	title = 'new-login';

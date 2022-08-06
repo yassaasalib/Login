@@ -1,16 +1,19 @@
-<div>
-	<ul>
-		<li *ngFor="let subscribtion of subscribtions$ | async">
-			<div>Name: {{ subscribtion.name }}</div>
-			<div>Type: {{ subscribtion.type }}</div>
-			<ul *ngIf="subscribtion.usage">
-				Usage:
-				<li *ngFor="let usage of subscribtion.usage">
-					Limit: {{ usage.limit}}
-					Type: {{usage.type}}
-					Used: {{usage.used}}
-				</li>
+<div id="structure">
+	<mat-card class="subscribtion-card" *ngFor="let subscribtion of subscribtions$ | async">
+		<mat-card-title>{{ subscribtion.name }}</mat-card-title>
+		<mat-card-subtitle>{{ subscribtion.type }}</mat-card-subtitle>
+		<mat-card-content *ngIf="subscribtion.usage">
+			<mat-card-subtitle>Usage</mat-card-subtitle>
+			<ul *ngFor="let usage of subscribtion.usage">
+				<li>Limit: {{ usage.limit }}</li>
+				<li>Type: {{ usage.type }}</li>
+				<li>Used: {{ usage.used }}</li>
 			</ul>
-		</li>
-	</ul>
+		</mat-card-content>
+	</mat-card>
+	<div *ngIf="subscribtions$ | async as Subscribtion; else loading">
+	</div>
+	<ng-template #loading>
+		<mat-spinner #spinner></mat-spinner>
+	</ng-template>
 </div>
